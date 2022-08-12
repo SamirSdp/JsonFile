@@ -70,7 +70,7 @@ const UploadFile = () => {
 	};
 	return (
 		<div className="d-sm-flex flex-column align-items-center">
-			
+
 			<FileUploader
 				handleChange={(xlFile) => {
 					handleChange(xlFile);
@@ -78,34 +78,37 @@ const UploadFile = () => {
 				name="file"
 				types={fileTypes}
 			/>
+			<div className="grid" >
 
-			{jsonFile.length > 0 ? (
-				jsonFile.map((item, index) => {
-					return (
-						<div key={index} className="Btn-Down">
-							{workSheet.length > 0 ? (
-								<a
-									className=""
-									key={index}
-									// It's Use to download to convert in url
-									href={`data:text/json;charset=utf-8,${encodeURIComponent(
-										JSON.stringify(convertFile)
-									)}`}
-									download={`${fileName} ${item.sheetName}.json`}>
-									<button
-										className="btn btn-outline-secondary m-3"
-										onClick={() => convert(item.json)}>
 
-										{`Download ${item.sheetName}`}
-									</button>
-								</a>
-							) : (
-								<h3>Emty Sheet</h3>
-							)}
-						</div>
-					);
-				})
-			) : null}
+				{jsonFile.length > 0 ? (
+					jsonFile.map((item, index) => {
+						return (
+							<div key={index} className="Btn-Down">
+								{workSheet.length > 0 ? (
+									<a
+										className=""
+										key={index}
+										// It's Use to download to convert in url
+										href={`data:text/json;charset=utf-8,${encodeURIComponent(
+											JSON.stringify(convertFile)
+										)}`}
+										download={`${fileName} ${item.sheetName}.json`}>
+										<button
+											className="btn btn-outline-secondary m-3"
+											onClick={() => convert(item.json)}>
+
+											{`Download ${item.sheetName}`}
+										</button>
+									</a>
+								) : (
+									<h3>Emty Sheet</h3>
+								)}
+							</div>
+						);
+					})
+				) : null}
+			</div>
 
 		</div>
 	);
