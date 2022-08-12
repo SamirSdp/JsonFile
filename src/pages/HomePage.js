@@ -4,9 +4,16 @@ import UploadFile from "../component/UploadFile";
 
 const HomePage = () => {
 	return (
-		<div className="">
-			<div className=" ">
-				<UploadFile />
+		<div className="m-5">
+			<div class="card">
+				<div class="card-header">
+					File Upload
+				</div>
+				<div class="card-body ">
+					
+						<UploadFile />
+					
+				</div>
 			</div>
 		</div>
 	);

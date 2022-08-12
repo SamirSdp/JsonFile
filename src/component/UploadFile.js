@@ -69,16 +69,15 @@ const UploadFile = () => {
 		console.log("convertData", convertData);
 	};
 	return (
-		<div className="">
-			<div className="">
-				<FileUploader
-					handleChange={(xlFile) => {
-						handleChange(xlFile);
-					}}
-					name="file"
-					types={fileTypes}
-				/>
-			</div>
+		<div className="d-sm-flex flex-column align-items-center">
+			
+			<FileUploader
+				handleChange={(xlFile) => {
+					handleChange(xlFile);
+				}}
+				name="file"
+				types={fileTypes}
+			/>
 
 			{jsonFile.length > 0 ? (
 				jsonFile.map((item, index) => {
@@ -94,9 +93,10 @@ const UploadFile = () => {
 									)}`}
 									download={`${fileName} ${item.sheetName}.json`}>
 									<button
-										className="btn btn-outline-secondary m-2"
+										className="btn btn-outline-secondary m-3"
 										onClick={() => convert(item.json)}>
-										{`${fileName} ${item.sheetName}`}
+
+										{`Download ${item.sheetName}`}
 									</button>
 								</a>
 							) : (
@@ -105,9 +105,8 @@ const UploadFile = () => {
 						</div>
 					);
 				})
-			) : (
-				<h3 className="h1-st">Select Xlsx File</h3>
-			)}
+			) : null}
+
 		</div>
 	);
 };
