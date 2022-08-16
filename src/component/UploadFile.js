@@ -69,8 +69,9 @@ const UploadFile = () => {
 		console.log("convertData", convertData);
 	};
 	return (
-		<div className="">
-			<div className="">
+		<div className="file-main m-1 p-2 mt-3">
+			<span className="file-enter-text fs-2 px-4 mb-3 text text-decoration-underline">Select Xlsx File</span>
+			<div className="file mb-2 p-2 px-5">
 				<FileUploader
 					handleChange={(xlFile) => {
 						handleChange(xlFile);
@@ -79,35 +80,43 @@ const UploadFile = () => {
 					types={fileTypes}
 				/>
 			</div>
-
-			{jsonFile.length > 0 ? (
-				jsonFile.map((item, index) => {
-					return (
-						<div key={index} className="Btn-Down">
-							{workSheet.length > 0 ? (
-								<a
-									className=""
-									key={index}
-									// It's Use to download to convert in url
-									href={`data:text/json;charset=utf-8,${encodeURIComponent(
-										JSON.stringify(convertFile)
-									)}`}
-									download={`${fileName} ${item.sheetName}.json`}>
-									<button
-										className="btn btn-outline-secondary m-2"
-										onClick={() => convert(item.json)}>
-										{`${fileName} ${item.sheetName}`}
-									</button>
-								</a>
-							) : (
-								<h3>Emty Sheet</h3>
-							)}
+			<div className="download-file mt-4">
+				{jsonFile.length > 0 ? (
+					<div className="card">
+						<h5 className="card-header">Download</h5>
+						<div className="card-body">
+							<div className="main-grid">
+								{jsonFile.map((item, index) => {
+									return (
+										<div key={index}>
+											<div className="btn-content py-2 px-3 mt-0 ">
+												{workSheet.length > 0 ? (
+													<a
+														className=""
+														key={index}
+														// It's Use to download to convert in url
+														href={`data:text/json;charset=utf-8,${encodeURIComponent(
+															JSON.stringify(convertFile)
+														)}`}
+														download={`${fileName} ${item.sheetName}.json`}>
+														<button
+															className="btn-down text-wrap"
+															onClick={() => convert(item.json)}>
+															{`${item.sheetName}.json`}
+														</button>
+													</a>
+												) : (
+													<h3>No Sheet available please check xlsx file</h3>
+												)}
+											</div>
+										</div>
+									);
+								})}
+							</div>
 						</div>
-					);
-				})
-			) : (
-				<h3 className="h1-st">Select Xlsx File</h3>
-			)}
+					</div>
+				) : null}
+			</div>
 		</div>
 	);
 };

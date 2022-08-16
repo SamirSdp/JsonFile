@@ -1,17 +1,23 @@
-
 .App-page-stl {
-	background-color:gray;
+	box-sizing: border-box;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 .nav-main {
-	/* background-color: #252627; */
-	/* text-align: center; */
+	background-color: gray;
+	border-radius: 10px;
+}
+.file-main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 .header-name {
 	color: black;
 	background-color: rgb(175, 165, 165);
+	border-radius: 4px;
 }
 .nav-content {
 	display: flex;
@@ -19,16 +25,57 @@
 	align-items: center;
 }
 .nav-content-item {
-	background-color: red;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-/* .App-header {
-	background-color: #282c34;
-	min-height: 100vh;
+.file {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	height: 100px;
+	background-color: whitesmoke;
+	border-color: burlywood;
+	border-style: solid;
+	border-radius: 4px;
+}
+.file:hover {
+	background-color: burlywood;
+}
+.file-enter-text {
+	cursor: pointer;
+}
+.btn-content {
+	display: flex;
+	align-items: center;
+}
+.btn-down {
+	color: black;
+	border-color: gray;
+	border-style: solid;
+}
+.btn-down:hover {
+	background-color: gray;
+	color: white;
+}
+.download-file {
+	display: flex;
 	align-items: center;
 	justify-content: center;
-} */
+	text-align: center;
+	width: 100%;
+}
+.card-main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px;
+	padding: 10px;
+}
+.main-grid {
+	text-align: center;
+	display:grid;
+	grid-template-columns: auto auto;
+	/* grid-template-areas: myarea; */
+}

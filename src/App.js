@@ -8,6 +8,7 @@ function App() {
 		<div className="App-page-stl">
 				<NavBar />
 				<HomePage />
+				<AboutPage/>
 		
 		</div>
 	);
