@@ -100,7 +100,9 @@ const UploadFile = () => {
 			<div className="download-file mt-4">
 				{jsonFile.length > 0 ? (
 					<div className="card">
-						<h5 className="card-header">Download</h5>
+						<h5 className="card-header" style={{ color: "black" }}>
+							Sheets
+						</h5>
 						<div className="card-body">
 							<div className="main-grid">
 								{jsonFile.map((item, index) => {
@@ -109,7 +111,7 @@ const UploadFile = () => {
 											<div className="btn-content py-2 px-3 mt-0 ">
 												<button
 													disabled={item.json.length > 0 ? false : true}
-													className="btn-down text-wrap"
+													className="btn-down px-2"
 													onClick={() => convert(item.json, item.sheetName)}>
 													{item.json.length > 0
 														? `${item.sheetName}.json`
@@ -124,42 +126,52 @@ const UploadFile = () => {
 					</div>
 				) : null}
 			</div>
-			<div>
+			<div className="main-output">
 				{convertFile && (
-					<div className="card  m-4">
-						<h5 className="card-header">Json Data</h5>
+					<div>
+						<div className="card  m-4">
+							<h5
+								className="card-header text-center"
+								style={{ color: "black" }}>
+								Json Data
+							</h5>
 
-						<div className="copy-download p-2">
-							<CopyToClipboard
-								text={JSON.stringify(convertFile?.jsonFile)}
-								onCopy={onCopyText}>
-								<button className="btn-copy">copy</button>
-							</CopyToClipboard>
+							<div className="copy-download p-1">
+								<CopyToClipboard
+									text={JSON.stringify(convertFile?.jsonFile)}
+									onCopy={onCopyText}>
+									<button className="btn-down-copy px-3 m-2">copy</button>
+								</CopyToClipboard>
 
-							<a
-								className="btn-download"
-								// It's Use to download to convert in url
-								href={`data:text/json;charset=utf-8,${encodeURIComponent(
-									JSON.stringify(convertFile?.jsonFile)
-								)}`}
-								download={`${convertFile?.jsonFileName}.json`}>
-								<button className=" btn-download mx-2">download</button>
-							</a>
-						</div>
-
-						{isCopied && (
-							<div
-								className={`alert alert-primary copy-feedback ${
-									isCopied ? "active" : null
-								} `}
-								role="alert">
-								A simple primary alert—check it out!
+								<a
+									className="a-tag"
+									// It's Use to download to convert in url
+									href={`data:text/json;charset=utf-8,${encodeURIComponent(
+										JSON.stringify(convertFile?.jsonFile)
+									)}`}
+									download={`${convertFile?.jsonFileName}.json`}>
+									<button className="btn-down-copy px-2 m-2">download</button>
+								</a>
 							</div>
-						)}
-
-						<pre className="pre">
-							{JSON.stringify(convertFile?.jsonFile, null, 2)}
-						</pre>
+							<div className="mx-5">
+								{isCopied && (
+									<div
+										className={`alert alert-primary copy-feedback text-center ${
+											isCopied ? "active" : null
+										} `}
+										role="alert">
+										Copied!
+									</div>
+								)}
+							</div>
+						</div>
+						<div>
+							<div className="output border border-bottom-0">
+								<pre className="pre fs-6 lh-base px-2 py-2">
+									{JSON.stringify(convertFile?.jsonFile, null, 2)}
+								</pre>
+							</div>
+						</div>
 					</div>
 				)}
 			</div>

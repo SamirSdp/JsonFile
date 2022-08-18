@@ -1,9 +1,9 @@
 {
   "editor.quickSuggestions": {
-      "comments": false, // <- no 24x7 IntelliSense in comments
-      "strings": true, // but in strings and the other parts of source files
-      "other": true
-  },
+    "comments": false, // <- no 24x7 IntelliSense in comments
+    "strings": true, // but in strings and the other parts of source files
+    "other": true
+},
     "folders": [
       {
         "path": "C:\\Users\\Admin\\Desktop\\Samir\\json-project"

@@ -6,10 +6,9 @@ import NavBar from "./component/NavBar";
 function App() {
 	return (
 		<div className="App-page-stl">
-				<NavBar />
-				<HomePage />
-				<AboutPage/>
-		
+			<NavBar />
+			<HomePage />
+			<AboutPage />
 		</div>
 	);
 }
